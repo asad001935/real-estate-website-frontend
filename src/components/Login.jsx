@@ -11,32 +11,33 @@ function Login() {
   
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      let response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
-        email,
-        password,
-      });
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-      const savedUser = localStorage.getItem("user.role")
-      Swal.fire('Updated!', `Logged in successfully as ${savedUser}. `, 'success');
-      console.log("Logged in successfully");
-      navigate('/')
-      window.location.reload();
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
-        Swal.fire('Oops!', error.response.data.message || 'Something went wrong', 'error');
-      } else {
-        console.error("Login in failed ", error);
-      }
-    }
-  };
+  try {
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
+      email,
+      password,
+    });
+
+    // Save token and user
+    localStorage.setItem("token", response.data.token);
+    localStorage.setItem("user", JSON.stringify(response.data.user));
+
+    const savedUser = JSON.parse(localStorage.getItem("user")).role;
+
+    Swal.fire('Success', `Logged in successfully as ${savedUser}`, 'success');
+
+    navigate('/');
+    window.location.reload();
+  } catch (error) {
+    Swal.fire(
+      'Error',
+      error.response?.data?.message || 'Network Error. Please try again.',
+      'error'
+    );
+    console.error("Login failed:", error);
+  }
+};
 
   
 

@@ -14,40 +14,34 @@ const Register = () => {
   const [role, setRole] = useState("user");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
+ const handleRegister = async (e) => {
+  e.preventDefault();
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-    }
+  if (password !== confirmPassword) {
+    Swal.fire('Error', 'Passwords do not match', 'error');
+    return;
+  }
 
-    try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, {
-        username,
-        email,
-        password,
-        role,
-      });
-      Swal.fire("Updated!", `Registered  successfully .`, "success");
-      console.log("Registration successful.");
-      navigate("/login");
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
-        Swal.fire(
-          "Oops!",
-          error.response.data.message || "Something went wrong",
-          "error"
-        );
-      } else {
-        console.error("Registration failed ", error);
-      }
-    }
-  };
+  try {
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, {
+      username,
+      email,
+      password,
+      role,
+    });
+
+    Swal.fire('Success', 'Registered successfully', 'success');
+    navigate('/login');
+  } catch (error) {
+    Swal.fire(
+      'Error',
+      error.response?.data?.message || 'Network Error. Please try again.',
+      'error'
+    );
+    console.error("Registration failed:", error);
+  }
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
