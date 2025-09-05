@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import heroSectionImg from "../images/hero-section.jpg";
-import "../app.css";
+import "../App.css";
 import Swal from "sweetalert2";
 import axios from "axios";
 
