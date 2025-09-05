@@ -23,7 +23,7 @@ export default function EditProperty() {
     const fetchProperty = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/property/getProperty/${id}`,
+          `${import.meta.env.VITE_API_URL}/api/property/getProperty/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -46,7 +46,7 @@ export default function EditProperty() {
     e.preventDefault();
     try {
       await axios.put(
-        `http://localhost:5000/api/property/editProperty/${id}`,
+       `${import.meta.env.VITE_API_URL}/api/property/editProperty/${id}`,
         { type, price, location, image },
         { headers: { Authorization: `Bearer ${token}` } }
       );

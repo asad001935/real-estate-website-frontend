@@ -11,7 +11,7 @@ export default function AddProperty() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/property/createProperty", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/property/createProperty`, {
         type,
         price,
         location,

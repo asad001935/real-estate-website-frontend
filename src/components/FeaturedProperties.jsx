@@ -11,7 +11,7 @@ export default function FeaturedProperties() {
     const fetchedProperties = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/property/getFeatured"
+          `${import.meta.env.VITE_API_URL}/api/property/getFeatured`
         );
         setProperties(response.data.properties);
       } catch (error) {
@@ -55,7 +55,7 @@ export default function FeaturedProperties() {
         </h2>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {properties.slice(33, 39).map((property) => (
+          {properties.slice(1, 7).map((property) => (
             <div
               key={property._id}
               className="relative group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"

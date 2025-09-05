@@ -22,7 +22,7 @@ function AllProperties() {
     const fetchProperties = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/property/getAllProperty",
+          `${import.meta.env.VITE_API_URL}/api/property/getAllProperty`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setProperties(response.data.properties);
@@ -55,7 +55,7 @@ function AllProperties() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/property/deleteProperty/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/property/deleteProperty/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setProperties(properties.filter((p) => p._id !== id));

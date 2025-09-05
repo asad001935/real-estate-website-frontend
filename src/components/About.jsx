@@ -17,7 +17,7 @@ function About() {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "http://localhost:5000/api/property/getFeatured",
+          `${import.meta.env.VITE_API_URL}/api/property/getFeatured`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
