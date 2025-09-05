@@ -20,7 +20,7 @@ function Contact() {
 
     try {
       if (token) { 
-        await axios.post(`${import.meta.env.VITE_API_URL}/api/inquiry/createInquiry`, formData, {
+        await axios.post(`https://illustrious-enthusiasm-production.up.railway.app/api/inquiry/createInquiry`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

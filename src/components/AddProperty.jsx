@@ -11,7 +11,7 @@ export default function AddProperty() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/property/createProperty`, {
+      await axios.post(`https://illustrious-enthusiasm-production.up.railway.app/api/property/createProperty`, {
         type,
         price,
         location,

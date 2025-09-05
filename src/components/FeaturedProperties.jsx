@@ -11,7 +11,7 @@ export default function FeaturedProperties() {
     const fetchedProperties = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/property/getFeatured`
+          `https://illustrious-enthusiasm-production.up.railway.app/api/property/getFeatured`
         );
         setProperties(response.data.properties);
       } catch (error) {

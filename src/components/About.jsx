@@ -17,7 +17,7 @@ function About() {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/property/getFeatured`,
+          `https://illustrious-enthusiasm-production.up.railway.app/api/property/getFeatured`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
