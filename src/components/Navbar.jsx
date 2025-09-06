@@ -90,8 +90,12 @@ export default function Navbar() {
           </Link>
 
           {/* Mobile menu toggle */}
+          {/* Mobile menu toggle */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={(e) => {
+              e.stopPropagation(); // ✅ Prevent outside handler from firing
+              setIsOpen(!isOpen);
+            }}
             className="md:hidden w-12 h-12 flex items-center justify-center border rounded-md shadow-sm"
           >
             <svg
@@ -215,6 +219,25 @@ export default function Navbar() {
                   Contact
                 </Link>
               </li>
+
+              {/* ✅ Show Login/Register inside mobile menu if not logged in */}
+              {/* ✅ Show Login/Register inside mobile menu if not logged in */}
+              {!token && (
+                <div className="flex flex-col gap-2 mt-3 md:hidden">
+                  <Link
+                    to="/login"
+                    className="border border-blue-600 text-blue-600 px-3 py-2 rounded-md text-center"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="bg-blue-600 mb-4 text-white px-3 py-2 rounded-md text-center"
+                  >
+                    Register
+                  </Link>
+                </div>
+              )}
             </ul>
           </div>
 
@@ -255,15 +278,7 @@ export default function Navbar() {
                         Profile
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        to="/bookmarks"
-                        onClick={handleLinkClick}
-                        className="px-4 py-2 block"
-                      >
-                        Bookmarks
-                      </Link>
-                    </li>
+
                     {/* Users cannot see any switch button */}
                     <li>
                       <hr className="my-1 border-gray-200" />

@@ -29,7 +29,7 @@ function Contact() {
       }
 
     
-      const response = await fetch("https://formspree.io/f/meolerye", {
+      const response = await fetch("https://formspree.io/f/xrbaonvd", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -43,8 +43,8 @@ function Contact() {
         form.reset();
         Swal.fire("Success!", "Message sent successfully.", "success");
       } else {
-        setStatus("Failed to send message via Formspree.");
-        Swal.fire("Error!", "Failed to send message via Formspree.", "error");
+        setStatus("Failed to send message via FormsFree.");
+        Swal.fire("Error!", "Failed to send message via FormsFree.", "error");
       }
     } catch (error) {
       console.error("Error sending message:", error);
@@ -121,7 +121,6 @@ function Contact() {
               href="https://api.whatsapp.com/send/?phone=923296021819&text=Hello%2C+I+want+to+contact+you+about+your+property%21&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => protectNavigate(e, "")}
               className="px-5 cursor-pointer flex py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700"
             >
               <FaWhatsapp className="me-2" size={20} color="white" /> Contact Us
@@ -171,7 +170,6 @@ function Contact() {
             ></textarea>
             <button
               type="submit"
-              onClick={(e) => protectNavigate(e, "")}
               className="w-full py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700"
             >
               Send Message

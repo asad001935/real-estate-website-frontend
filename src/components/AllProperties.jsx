@@ -79,10 +79,10 @@ function AllProperties() {
 
   if (loading) {
     return (
-      <div className="flex flex-col justify-center items-center min-h-[50vh]">
-        <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16"></div>
-        Loading properties...
-      </div>
+       <div className="flex flex-col justify-center items-center min-h-[50vh] space-y-4">
+      <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+      <p className="text-gray-600 font-medium animate-pulse">Loading...</p>
+    </div>
     );
   }
 
