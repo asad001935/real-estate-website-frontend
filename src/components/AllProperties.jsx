@@ -17,13 +17,11 @@ function AllProperties() {
     if (storedUser) setUser(JSON.parse(storedUser));
   }, []);
 
-  // Fetch properties
-  useEffect(() => {
-    const fetchProperties = async () => {
+    useEffect(() => {
+    const fetchedProperties = async () => {
       try {
         const response = await axios.get(
-          `https://illustrious-enthusiasm-production.up.railway.app/api/property/getAllProperty`,
-          { headers: { Authorization: `Bearer ${token}` } }
+          `https://illustrious-enthusiasm-production.up.railway.app/api/property/getFeatured`
         );
         setProperties(response.data.properties);
         setLoading(false);
@@ -31,13 +29,31 @@ function AllProperties() {
         Swal.fire({
           icon: "error",
           title: "Failed to Load",
-          text: "Could not fetch your properties. Try again!",
+          text: "Could not fetch properties. Try again!",
         });
-        setLoading(false);
       }
     };
-    fetchProperties();
-  }, [token]);
+    fetchedProperties();
+  }, []);
+  // Fetch properties
+  // useEffect(() => {
+  //   const fetchProperties = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `https://illustrious-enthusiasm-production.up.railway.app/api/property/getAllProperty`);
+  //       setProperties(response.data.properties);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       Swal.fire({
+  //         icon: "error",
+  //         title: "Failed to Load",
+  //         text: "Could not fetch your properties. Try again!",
+  //       });
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchProperties();
+  // }, []);
 
   // Delete property
   const handleDelete = async (id) => {

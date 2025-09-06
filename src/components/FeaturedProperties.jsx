@@ -81,7 +81,7 @@ export default function FeaturedProperties() {
 
         <div className="flex justify-center mt-12">
           <button
-            onClick={() => protectNavigate("/all-properties")}
+            onClick={() => navigate("/all-properties")}
             className="cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 rounded-full text-white font-semibold shadow-md hover:from-blue-700 hover:to-indigo-700 transition"
           >
             View All Properties
