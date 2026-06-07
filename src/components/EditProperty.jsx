@@ -51,7 +51,7 @@ export default function EditProperty() {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       Swal.fire("Success!", "Property updated successfully.", "success");
-      navigate("/all-properties"); // Redirect after update
+      navigate("/all-properties");
     } catch (error) {
       Swal.fire(
         "Error!",

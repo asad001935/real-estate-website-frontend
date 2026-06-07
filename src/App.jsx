@@ -61,10 +61,6 @@ function App() {
         <Route path="/agentsPage" element={<AgentsPage />} />
         <Route path="/add-property" element={<AddProperty />} />
         <Route path="/edit-property/:id" element={<EditProperty />} />
-
-
-
-
       </Routes>
       <Footer />
     </BrowserRouter>
