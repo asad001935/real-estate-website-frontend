@@ -23,7 +23,7 @@ const Register = () => {
   }
 
   try {
-    const response = await axios.post(`https://illustrious-enthusiasm-production.up.railway.app/api/auth/register`, {
+    const response = await axios.post(`https://real-estate-website-backend-3.onrender.com/api/auth/register`, {
       username,
       email,
       password,

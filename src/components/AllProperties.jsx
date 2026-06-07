@@ -21,7 +21,7 @@ function AllProperties() {
     const fetchedProperties = async () => {
       try {
         const response = await axios.get(
-          `https://illustrious-enthusiasm-production.up.railway.app/api/property/getFeatured`
+          `https://real-estate-website-backend-3.onrender.com/api/property/getFeatured`
         );
         setProperties(response.data.properties);
         setLoading(false);
@@ -40,7 +40,7 @@ function AllProperties() {
   //   const fetchProperties = async () => {
   //     try {
   //       const response = await axios.get(
-  //         `https://illustrious-enthusiasm-production.up.railway.app/api/property/getAllProperty`);
+  //         `https://real-estate-website-backend-3.onrender.com/api/property/getAllProperty`);
   //       setProperties(response.data.properties);
   //       setLoading(false);
   //     } catch (error) {
@@ -71,7 +71,7 @@ function AllProperties() {
 
     try {
       await axios.delete(
-        `https://illustrious-enthusiasm-production.up.railway.app/api/property/deleteProperty/${id}`,
+        `https://real-estate-website-backend-3.onrender.com/api/property/deleteProperty/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setProperties(properties.filter((p) => p._id !== id));

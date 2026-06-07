@@ -11,7 +11,7 @@ export default function FeaturedProperties() {
     const fetchedProperties = async () => {
       try {
         const response = await axios.get(
-          `https://illustrious-enthusiasm-production.up.railway.app/api/property/getFeatured`
+          `https://real-estate-website-backend-3.onrender.com/api/property/getFeatured`
         );
         setProperties(response.data.properties);
       } catch (error) {

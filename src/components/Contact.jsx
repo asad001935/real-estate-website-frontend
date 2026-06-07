@@ -20,7 +20,7 @@ function Contact() {
 
     try {
       if (token) { 
-        await axios.post(`https://illustrious-enthusiasm-production.up.railway.app/api/inquiry/createInquiry`, formData, {
+        await axios.post(`https://real-estate-website-backend-3.onrender.com/api/inquiry/createInquiry`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

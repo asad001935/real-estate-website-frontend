@@ -23,7 +23,7 @@ export default function EditProperty() {
     const fetchProperty = async () => {
       try {
         const response = await axios.get(
-          `https://illustrious-enthusiasm-production.up.railway.app/api/property/getProperty/${id}`,
+          `https://real-estate-website-backend-3.onrender.com/api/property/getProperty/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -46,7 +46,7 @@ export default function EditProperty() {
     e.preventDefault();
     try {
       await axios.put(
-       `https://illustrious-enthusiasm-production.up.railway.app/api/property/editProperty/${id}`,
+       `https://real-estate-website-backend-3.onrender.com/api/property/editProperty/${id}`,
         { type, price, location, image },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -17,7 +17,7 @@ function About() {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          `https://illustrious-enthusiasm-production.up.railway.app/api/property/getFeatured`,
+          `https://real-estate-website-backend-3.onrender.com/api/property/getFeatured`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
